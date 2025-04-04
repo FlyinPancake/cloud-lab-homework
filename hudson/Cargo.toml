@@ -13,6 +13,10 @@ default-run = "hudson-cli"
 loco-rs = { version = "0.15" }
 
 [dependencies]
+shuttle-axum = "0.51.0"
+shuttle-runtime = { version = "0.51.0", default-features = false }
+shuttle-shared-db = { version = "0.51.0", features = ["postgres"] }
+
 loco-rs = { workspace = true  }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
@@ -40,6 +44,10 @@ include_dir = { version = "0.7" }
 name = "hudson-cli"
 path = "src/bin/main.rs"
 required-features = []
+
+[[bin]]
+name = "hudson"
+path = "src/bin/shuttle.rs"
 
 [dev-dependencies]
 loco-rs = { workspace = true, features = ["testing"] }
