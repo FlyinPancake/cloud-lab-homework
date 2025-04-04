@@ -18,3 +18,8 @@ target/
 
 *.sqlite
 *.sqlite-*
+/target
+.shuttle*
+Secrets*.toml
+
+.env
