@@ -24,7 +24,7 @@ const config: Config = {
   // clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
+  collectCoverage: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
@@ -200,5 +200,4 @@ const config: Config = {
   // watchman: true,
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- NextJest types are funny sometimes
 export default createJestConfig(config);
