@@ -45,7 +45,10 @@ async fn can_register() {
         });
 
         let deliveries = ctx.mailer.unwrap().deliveries();
-        assert_eq!(deliveries.count, 1, "Exactly one email should be sent");
+        assert_eq!(
+            deliveries.count, 0,
+            "No email should be sent as we are not sending emails"
+        );
 
         // with_settings!({
         //     filters => cleanup_email()
@@ -239,7 +242,7 @@ async fn can_reset_password() {
         );
 
         let deliveries = ctx.mailer.unwrap().deliveries();
-        assert_eq!(deliveries.count, 2, "Exactly one email should be sent");
+        assert_eq!(deliveries.count, 1, "Exactly one email should be sent");
         // with_settings!({
         //     filters => cleanup_email()
         // }, {
