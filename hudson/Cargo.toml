@@ -13,18 +13,18 @@ default-run = "hudson-cli"
 loco-rs = { version = "0.15" }
 
 [dependencies]
-shuttle-axum = "0.51.0"
-shuttle-runtime = { version = "0.51.0", default-features = false }
-shuttle-shared-db = { version = "0.51.0", features = ["postgres"] }
+shuttle-axum = "0.53.0"
+shuttle-runtime = { version = "0.53.0", default-features = false }
+shuttle-shared-db = { version = "0.53.0", features = ["postgres"] }
 
-loco-rs = { workspace = true  }
+loco-rs = { workspace = true }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1" }
 tokio = { version = "1.33.0", default-features = false, features = [
   "rt-multi-thread",
 ] }
 async-trait = { version = "0.1.74" }
-axum = { version = "0.8.1" }
+axum = { version = "0.8.3" }
 tracing = { version = "0.1.40" }
 tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
 regex = { version = "1.11.1" }
@@ -39,6 +39,8 @@ chrono = { version = "0.4" }
 validator = { version = "0.20" }
 uuid = { version = "1.6.0", features = ["v4"] }
 include_dir = { version = "0.7" }
+utoipa = { version = "5", features = ["axum_extras", "uuid", "chrono"] }
+utoipa-axum = "0.2"
 
 [[bin]]
 name = "hudson-cli"
@@ -52,5 +54,5 @@ path = "src/bin/shuttle.rs"
 [dev-dependencies]
 loco-rs = { workspace = true, features = ["testing"] }
 serial_test = { version = "3.1.1" }
-rstest = { version = "0.21.0" }
+rstest = { version = "0.25.0" }
 insta = { version = "1.34.0", features = ["redactions", "yaml", "filters"] }
