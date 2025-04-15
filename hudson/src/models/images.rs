@@ -29,11 +29,21 @@ pub struct Validator {
 
 // implement your read-oriented logic here
 impl Model {
+    /// Find an image by its ID
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if the image is not found or there is a database error
     pub async fn find_by_id(db: &DatabaseConnection, id: i32) -> ModelResult<Self> {
         let image = Entity::find_by_id(id).one(db).await?;
         image.ok_or_else(|| ModelError::EntityNotFound)
     }
 
+    /// Find all images by a user's ID
+    ///
+    /// # Errors
+    ///
+    /// Returns an error if there is a database error
     pub async fn find_by_user_id(db: &DatabaseConnection, user_id: i32) -> ModelResult<Vec<Self>> {
         let images = Entity::find()
             .filter(images::Column::UserId.eq(user_id))
